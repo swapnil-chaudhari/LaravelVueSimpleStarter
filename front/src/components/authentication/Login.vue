@@ -1,20 +1,33 @@
 <template lang="html">
     <div class="container">
-
-      <form class="form-signin">
-            <h2 class="form-signin-heading">Login</h2>
-            <label for="inputEmail" class="sr-only">Email</label>
-            <input type="email" v-model="email" class="form-control" placeholder="Email" required="" autofocus="">
-            <label for="inputPassword" class="sr-only">Password</label>
-            <input type="password" v-model="password" class="form-control" placeholder="Password" required="">
-            <div class="checkbox">
-              <label>
-                <input type="checkbox" value="remember-me"> Remember me
-              </label>
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="login-panel panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Login</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form role="form">
+                            <fieldset>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="E-mail" v-model="email" type="email" autofocus>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Password" v-model="password" type="password" value="">
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input name="remember" type="checkbox" value="Remember Me">Remember Me
+                                    </label>
+                                </div>
+                                <!-- Change this to a button or input when using this as a form -->
+                                <a @click="login" class="btn btn-lg btn-success btn-block">Login</a>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <button @click="test" class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
-      </form>
-
+        </div>
     </div>
 </template>
 
@@ -22,27 +35,25 @@
 export default {
     data () {
         return {
-            email    : 'connect@swapnilchaudhari',
-            password : '123'
+            email    : 'webster86@example.org',
+            password : 'secret'
         }
     },
     methods: {
-        test (){
+        login (){
             var data = {
-                client_id : '2',
-                client_secret : '',
+                client_id     : '2',
+                client_secret : 'jp8ak4LTPnfBmfIuI6ttwFUtFFbeqky81tRmqRlS',
                 grant_type : 'password',
                 username : this.email,
                 password : this.password
             }
 
-            this.$http.post("http://127.0.0.1:8000/oauth/token")
+            this.$http.post("oauth/token", data)
             .then(response => {
-                console.log(response)
+                this.$auth.setToken(response.body.access_token,response.body.expires_in + Date.now())
+                this.$router.push('/dashboard')
             })
-            // .then(function(response){
-            //     console.log(response)
-            // })
         }
     }
 }
@@ -53,5 +64,9 @@ export default {
 max-width: 330px;
 padding: 15px;
 margin: 0 auto;
+}
+
+body {
+    background-color: white !important;
 }
 </style>

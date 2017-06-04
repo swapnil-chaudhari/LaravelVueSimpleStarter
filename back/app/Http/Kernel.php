@@ -15,8 +15,6 @@ class Kernel extends HttpKernel
      */
     protected $middleware = [
         \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
-        \Barryvdh\Cors\ServiceProvider::class,
-
     ];
 
     /**
@@ -33,10 +31,10 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
+
         'api' => [
             'throttle:60,1',
             'bindings',
-            'auth:api',
         ],
     ];
 
@@ -48,18 +46,13 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        'auth'          => \Illuminate\Auth\Middleware\Authenticate::class,
-        'auth.basic'    => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
-        'bindings'      => \Illuminate\Routing\Middleware\SubstituteBindings::class,
-        'can'           => \Illuminate\Auth\Middleware\Authorize::class,
-        'guest'         => \App\Http\Middleware\RedirectIfAuthenticated::class,
-        'throttle'      => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'scopes'        => \Laravel\Passport\Http\Middleware\CheckScopes::class,
-        'scope'         => \Laravel\Passport\Http\Middleware\CheckForAnyScope::class,
-        'user'          => \App\Http\Middleware\CheckUser::class,
-        'administrator' => \App\Http\Middleware\CheckAdministrator::class,
-        'editor'        => \App\Http\Middleware\CheckEditor::class,
-
+        'auth' => \Illuminate\Auth\Middleware\Authenticate::class,
+        'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
+        'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
+        'can' => \Illuminate\Auth\Middleware\Authorize::class,
+        'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
+        'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'cors' => \App\Http\Middleware\Cors::class, // <<< add this line
 
     ];
 }
