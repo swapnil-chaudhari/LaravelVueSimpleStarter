@@ -35,7 +35,7 @@
 export default {
     data () {
         return {
-            email    : 'webster86@example.org',
+            email    : 'connect@swapnilchaudhari.com',
             password : 'secret'
         }
     },
@@ -43,7 +43,7 @@ export default {
         login (){
             var data = {
                 client_id     : '2',
-                client_secret : 'jp8ak4LTPnfBmfIuI6ttwFUtFFbeqky81tRmqRlS',
+                client_secret : 'jk9cjJ65Mdc4SQi7pHkZcrIczSL0vIqbOlnuFq7K',
                 grant_type : 'password',
                 username : this.email,
                 password : this.password

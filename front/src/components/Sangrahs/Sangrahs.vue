@@ -40,6 +40,7 @@
                                         <td>
                                             <button class="btn btn-warning" @click.prevent="editSangrah(sangrah)">EDIT</button>
                                             <button class="btn btn-danger" @click.prevent="deleteSangrahModal(sangrah)">DELETE</button>
+                                        </td>
                                     </tr>
                                 </td>
                                 </tbody>

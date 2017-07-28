@@ -31,3 +31,12 @@ $factory->define(App\Category::class, function (Faker\Generator $faker) {
         'description' => $faker->paragraph(random_int(1,10)),
     ];
 });
+
+
+$factory->define(App\Models\About::class, function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->word,
+        'description' => $faker->paragraph(random_int(1,10)),
+        'user_id' => 1
+    ];
+});

@@ -1,15 +1,18 @@
 <template>
   <div id="app">
-    <!-- <dashboard></dashboard> -->
+    <!-- <navigation></navigation> -->
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-// import Dashboard from './components/Dashboard'
+import Navigation from './components/Navigation'
 
 export default {
-  name: 'app'
+  name: 'app',
+  components: {
+            Navigation
+        },
 }
 </script>
 

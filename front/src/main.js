@@ -7,9 +7,9 @@ import Auth from './packages/auth/auth.js'
 import '../bootstrap/css/bootstrap.min.css'
 import '../bootstrap/css/sb-admin.css'
 import '../bootstrap/font-awesome/css/font-awesome.min.css'
-// import '../bootstrap/css/form-elements.css'
 import '../bootstrap/js/jquery.js'
 import '../bootstrap/js/bootstrap.min.js'
+import 'assets/css/styles.css';
 
 Vue.use(VueReource)
 Vue.use(Auth)

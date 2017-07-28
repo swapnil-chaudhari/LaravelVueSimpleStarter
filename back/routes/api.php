@@ -16,13 +16,5 @@ Route::get('/test', function(){
 });
 
 Route::group(['middleware' => 'auth:api'], function(){
-    Route::resource('categories', 'CategoryController');
-
-    Route::resource('gods', 'GodController');
-
-    Route::resource('sangrahs', 'SangrahController');
-
-    Route::get('categoriesList', 'CategoryController@fetchCategoriesList');
-
-    Route::get('godsList', 'GodController@fetchGodsList');
+    Route::resource('about', 'AboutController');
 });
